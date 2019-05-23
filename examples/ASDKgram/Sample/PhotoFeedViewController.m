@@ -89,7 +89,7 @@
 #pragma mark - UITableViewDelegate methods
 
 // table automatic tail loading
--(void)scrollViewDidScroll:(UIScrollView *)scrollView
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
   CGFloat currentOffSetY = scrollView.contentOffset.y;
   CGFloat contentHeight  = scrollView.contentSize.height;
