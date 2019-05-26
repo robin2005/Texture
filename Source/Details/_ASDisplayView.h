@@ -33,11 +33,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 // These methods expose a way for ASDisplayNode responder methods to let the view call super responder methods
 // They are called from ASDisplayNode to pass through UIResponder methods to the view
-- (BOOL)__canBecomeFirstResponder;
-- (BOOL)__becomeFirstResponder;
-- (BOOL)__canResignFirstResponder;
-- (BOOL)__resignFirstResponder;
-- (BOOL)__isFirstResponder;
+//- (BOOL)__canBecomeFirstResponder;
+//- (BOOL)__becomeFirstResponder;
+//- (BOOL)__canResignFirstResponder;
+//- (BOOL)__resignFirstResponder;
+//- (BOOL)__isFirstResponder;
 
 @end
 
