@@ -136,18 +136,21 @@ if (shouldApply) { _layer.layerProperty = (layerValueExpr); } else { ASDisplayNo
 
 - (BOOL)becomeFirstResponder
 {
+  ASDisplayNodeAssertMainThread();
+
   // Note: This implicitly loads the view if it hasn't been loaded yet.
   [self view];
 
   if (![self canBecomeFirstResponder]) {
     return NO;
   }
-
   return [_view becomeFirstResponder];
 }
 
 - (BOOL)canResignFirstResponder
 {
+  ASDisplayNodeAssertMainThread();
+
   if (_view == nil) {
     // By default we return YES if no view is created yet
     return YES;
@@ -157,56 +160,26 @@ if (shouldApply) { _layer.layerProperty = (layerValueExpr); } else { ASDisplayNo
 
 - (BOOL)resignFirstResponder
 {
+  ASDisplayNodeAssertMainThread();
+
   // Note: This implicitly loads the view if it hasn't been loaded yet.
   [self view];
 
   if (![self canResignFirstResponder]) {
     return NO;
   }
-
   return [_view resignFirstResponder];
 }
 
 - (BOOL)isFirstResponder
 {
+  ASDisplayNodeAssertMainThread();
   if (_view == nil) {
     // If no view is created yet we can just return NO as it's unlikely it's the first responder
     return NO;
   }
-
   return [_view isFirstResponder];
 }
-
-
-//- (BOOL)canBecomeFirstResponder
-//{
-//  ASDisplayNodeAssertMainThread();
-//  return [self __canBecomeFirstResponder];
-//}
-
-//- (BOOL)canResignFirstResponder
-//{
-//  ASDisplayNodeAssertMainThread();
-//  return [self __canResignFirstResponder];
-//}
-
-//- (BOOL)isFirstResponder
-//{
-//  ASDisplayNodeAssertMainThread();
-//  return [self __isFirstResponder];
-//}
-
-//- (BOOL)becomeFirstResponder
-//{
-//  ASDisplayNodeAssertMainThread();
-//  return [self __becomeFirstResponder];
-//}
-
-//- (BOOL)resignFirstResponder
-//{
-//  ASDisplayNodeAssertMainThread();
-//  return [self __resignFirstResponder];
-//}
 
 - (BOOL)canPerformAction:(SEL)action withSender:(id)sender
 {
